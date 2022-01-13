@@ -15,7 +15,7 @@ jobs:
           - 25.3
           - 26.3
           - 27.2
-          - emacs-snapshot
+          - snapshot
     steps:
       - uses: actions/checkout@v2
       - uses: purcell/setup-emacs@master
