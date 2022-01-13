@@ -6,7 +6,7 @@
 ;; Keywords: org-mode todo tools outlines
 ;; URL: https://github.com/IvanMalison/org-projectile
 ;; Version: 0.0.1
-;; Package-Requires: ((org "9.0.0") (emacs "24"))
+;; Package-Requires: ((org "9.0.0") (emacs "25"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -52,19 +52,7 @@
    (options :initarg :options)
    (strategy :initarg :strategy)))
 
-;; This was needed because cl-defmethod doesn't exist in emacs24
-(cl-defun occ-build-capture-template-emacs-24-hack
-    (context &key (character "p") (heading "Category TODO"))
-  (with-slots (template options strategy) context
-    (apply 'list character heading 'entry
-           (list 'function
-                 (apply-partially 'occ-get-capture-location strategy context))
-           template options)))
-
-(cl-defmethod occ-build-capture-template ((context occ-context) &rest args)
-  (apply 'occ-build-capture-template-emacs-24-hack context args))
-
-(cl-defmethod occ-capture ((context occ-context))
+(cl-defmethod occ-build-capture-template ((context occ-context))
   (with-slots (category template options strategy)
       context
     (org-capture-set-plist (occ-build-capture-template context))
