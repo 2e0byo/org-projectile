@@ -5,7 +5,6 @@
 (package-file "org-category-capture.el")
 (package-file "org-projectile-helm.el")
 
-(depends-on "org-contrib")
 (depends-on "dash")
 (depends-on "noflet")
 (depends-on "ert-runner")
