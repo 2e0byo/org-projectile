@@ -36,6 +36,7 @@ jobs:
         with:
           version: snapshot
       - run: echo "$HOME/.cask/bin" >> $GITHUB_PATH
+      - run: cask update cask
       - name: install
         run: make compile
       - name: run tests
