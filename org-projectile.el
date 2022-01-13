@@ -220,8 +220,7 @@ compute this path."
 
 (defclass org-projectile-top-level-categories-specifier nil nil)
 
-(cl-defmethod org-projectile-get-existing-categories
-  )
+(cl-defmethod org-projectile-get-existing-categories ())
 
 (defclass org-projectile-single-file-strategy nil nil)
 
